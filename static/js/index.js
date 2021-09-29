@@ -49,7 +49,7 @@ function LED1_Off(){
 	
     client.subscribe("alexiscazco31@gmail.com/t2");
     message = new Paho.MQTT.Message("hola desde la web");
-    message.destinationName = "lalexiscazco31@gmail.com/t1";
+    message.destinationName = "alexiscazco31@gmail.com/t1";
     client.send(message);
 	
   }
@@ -69,8 +69,8 @@ function LED1_Off(){
   // called when a message arrives
   function onMessageArrived(message) {
     console.log("onMessageArrived:"+message.payloadString);
-var a = message.payloadString.split("-")
-document.getElementById("sensor1").innerHTML=a[0];
-document.getElementById("sensor2").innerHTML=a[1];
+    var a = message.payloadString.split("-")
+	  document.getElementById("sensor1").innerHTML=a[0];
+    document.getElementById("sensor2").innerHTML=a[1];
   }
   
