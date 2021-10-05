@@ -18,17 +18,6 @@ function LED1_Off(){
 	//document.getElementById("sensor").innerHTML="led off";
 }
 
-function  UNACH_modo1() {
-	//alert("led on");
-	console.log("led on");
-	//document.getElementById("sensor").innerHTML="led on";
-	message = new Paho.MQTT.Message("ON");
-    	message.destinationName = "alexiscazco31@gmail.com/t1";
-    	client.send(message);
-  
-}
-
-
 
 // Create a client instance
   //client = new Paho.MQTT.Client("postman.cloudmqtt.com", 14970);
@@ -76,9 +65,8 @@ function  UNACH_modo1() {
   // called when a message arrives
   function onMessageArrived(message) {
     console.log("onMessageArrived:"+message.payloadString);
-    var a = message.payloadString.split("-")
+    var a = message.payloadString.split("+")
 	  document.getElementById("sensor1").innerHTML=a[0];
-    document.getElementById("sensor2").innerHTML=a[1];
-	 document.getElementById("sensor3").innerHTML=a[2];  
+    document.getElementById("sensor2").innerHTML=a[1];  
   }
   
